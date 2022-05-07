@@ -1,0 +1,32 @@
+body {
+    background-color:grey;
+}
+
+#postcodeerror, #pickuporder {
+    display:none;
+}
+
+#postcodeerror {
+    color:red;
+}
+
+#ordernow {
+    display:block;
+}
+
+#code-found__message{
+    display: none;
+}
+
+#code-found__message.show{
+    display: block;
+}
+
+#ordernow, #pickuporder {
+    border:1px solid black;
+    width:200px;
+    margin:20px auto;
+    padding:10px;
+    text-align:center;
+    background-color:white;
+}
