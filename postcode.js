@@ -6,7 +6,7 @@
       validatePostcode();
     })
   
-    const redirectOnFound = false;
+    const redirectOnFound = true;
     const postCodeFoundRedirectUrl = "";
     const noPostCodeFoundRedirectUrl = "";
   
@@ -33,10 +33,8 @@
         document.getElementById("postcodeerror").style.display = "block";
         return false;
       }
-  
       // valid postcode so split into two parts
       let stringArray = postcode.split(" ");
-  
       // get first and seconds parts
       let firstword = stringArray[0];
       let secondword = stringArray[1];
@@ -44,8 +42,6 @@
       let firstchar = secondword.charAt(0);
   
       let lookingfor = firstword + " " + firstchar;
-  
-      console.log("looking for " + lookingfor);
       // check input postcode is in array of good postcodes
       if (postcodes.indexOf(lookingfor) > -1) {
         // yes it is so carry on
@@ -56,16 +52,8 @@
         foundCodeMessage.classList.add('show');
       } else {
         // no it isn't so show other option
-        document.getElementById("pickuporder").style.display = "block";
-        document.getElementById("ordernow").style.display = "none";
+        window.location.href = noPostCodeFoundRedirectUrl;
         return false;
       }
     }
-  
-    // and a redirect for the non valid postcode
-    function collectOption() {
-      alert("Postcode not in list - need to pick up");
-      window.location.href = noPostCodeFoundRedirectUrl;
-      return false;
-    }
-  })();
+})();
